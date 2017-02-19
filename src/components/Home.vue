@@ -11,7 +11,7 @@
 
 
       <itunes  :songs="songs" class="itunes"></itunes>
-    <!--<mytunes :myTunes="myTunes" class="mytunes">        </my-tunes>-->
+    <mytunes :myTunes="myTunes" class="mytunes">  My list      </my-tunes>
       
 
 
@@ -43,7 +43,7 @@
     data() {
       return {
         query: '',
-        myTunes: myTunesService.getMySongs(),
+        myTunes: {},
         songList: itunesService.getMySongs(),
         songs: [],
         
@@ -91,11 +91,11 @@
 * -- McCall
 **/
   
-  .my-tunes {
+  .mytunes {
     display: inline-block;
     min-height: 500px;
     min-width: 50%;
-    background: purple;
+    background: orangered;
   }
   
   .itunes {

@@ -7,17 +7,17 @@
 </div> -->
 
 <!--// list mytunes -->
-  <div v-for="myTune in myTunes" >
+  <div v-for="song in myTunes" >
      <div >
-            <!--<div class = "img-container">
+            <div class = "img-container">
               <img v-bind:src="song.artworkUrl60" >
                       
-                    </div>-->
+                    </div>
                     
-            {{myTune.trackName}}, 
-            <!--{{song.artistName}}, {{song.collectionName}}, {{song.collectionPrice}},-->
+            {{song.trackName}}, 
+            {{song.artistName}}, {{song.collectionName}}, {{song.collectionPrice}},
             
-            <!--<button type="submit" @click="addSong(song)" class="black">Add</button>-->
+            <button type="submit" @click="deleteSong(song)" class="black">Remove</button>
       </div>
     </div>
 
@@ -35,7 +35,6 @@ import myTunesService from '../services/mytunes-service'
 export default {
   name: 'mytunes',
   components:  {},
-  props: myTunes,
               
   data () {
     return {
@@ -57,6 +56,12 @@ export default {
     addSong(x) {
           myTunesService.addTrack(x)
           console.log(x)
+    },
+
+    deleteSong(x) {
+          myTunesService.removeTrack(x)
+          console.log(x)
+          
     }
   },
   mounted(){

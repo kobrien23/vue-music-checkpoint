@@ -28,13 +28,13 @@ let myTunesService = {
     // OCCASIONALLY YOU WILL RUN INTO ISSUES WHERE VUE WILL BE
     // UNAWARE THAT A CHANGE HAS OCCURED TO YOUR DATA
     // TO ELIMINATE THIS PROBLEM YOU CAN USE 
-    Vue.set(myTunes, track.id, track)
+    Vue.set(myTunes, track.trackId, track)
     saveMytunes()
     // YOU CAN READ MORE ABOUT VUE.SET HERE
     // https://vuejs.org/v2/api/#Vue-set
    },
   removeTrack(song) { 
-    delete myTunes[song.id]
+    delete myTunes[song.trackId]
     saveMytunes()
     loadMytunes()
   },
