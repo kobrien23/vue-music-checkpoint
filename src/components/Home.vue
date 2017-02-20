@@ -56,7 +56,7 @@
         var vm = this
         itunesService.getMusicByArtist(this.query).then(res => {
           vm.songs = res.results
-          // console.log(vm.songs)
+          console.log(Object.keys(vm.songs))
         })
       },
 

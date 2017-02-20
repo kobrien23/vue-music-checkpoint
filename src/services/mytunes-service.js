@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import itunesService from './itunes-service'
 
-let myTunes = {}
+let myTunes = []
 
 // THESE ARE SIMPLE HELPER FUNCTIONS TO KEEP YOUR MYTUNES IN LOCAL STORAGE
 // WE WILL EVENTUALLY BE REPLACING THESE GUYS BUT NOT TODAY :)
@@ -34,12 +34,29 @@ let myTunesService = {
     // https://vuejs.org/v2/api/#Vue-set
    },
   removeTrack(song) { 
-    delete myTunes[song.trackId]
+      Vue.delete(myTunes, song.trackId, song)
     saveMytunes()
-    loadMytunes()
+    // delete myTunes[song.trackId]
+    // saveMytunes()
+    // loadMytunes()
+    //  myTunes[song.trackId]= song
   },
-  promoteTrack() { },
-  demoteTrack() { }
+  promoteTrack(song) {
+     console.log(Object.keys(this.songs))
+     let x = this.songs.indexOf(this.song)
+     console.log(x)
+     let songx = this.song[x]
+     console.log(x)
+     let temp = songs.slice(x,1)
+     console.log(x)
+     this.songs=temp.splice(x-1,0,songx)
+     console.log(this.songs)
+    // saveMytunes()
+   },
+  demoteTrack(song) { 
+     Vue.set(myTunes, song.id-1, song)
+    saveMytunes()
+  }
 }
 
 export default myTunesService
